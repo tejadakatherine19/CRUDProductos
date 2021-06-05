@@ -1,0 +1,56 @@
+﻿@using CrudProductos.Models
+@{
+    ViewBag.Title = "Mostrar";
+    List<Producto> lista = ViewBag.datos != null ? ViewBag.datos : new List<Producto>();
+}
+
+<br />
+
+<h2 style="color:darkcyan" ; text-align="center">Listado de Productos</h2>
+@Html.ActionLink("Descargar PDF", "PDF", "Producto", new { @class = "btn btn-danger" })
+<br />
+<table class="table table-responsive table-striped table-responsive">
+
+    <thead>
+
+        <tr>
+            <th>ID</th>
+            <th>Producto</th>
+            <th>Descripcion</th>
+            <th>Precio</th>
+            <th colspan="2" style="text-align:center;">Opciones</th>
+
+        </tr>
+    </thead>
+    <thbody>
+        @if (lista.Count() > 0)
+        {
+            foreach (var p in lista)
+            {
+                <tr>
+                    <td>@p.id</td>
+                    <td>@p.producto</td>
+                    <td>@p.descripcion</td>
+                    <td>@p.precio</td>
+                  
+                    <td>@Html.ActionLink("Editar", "Create_Update", "Producto", new { idProd = p.id}, new {@class = "btn btn-warning" })</td>
+                    <td>@Html.ActionLink("Eliminar", "Delete", "Producto", new { idProd = p.id}, new { @class = "btn btn-danger" })</td>
+
+                    @*<td>@Math.Round(a.promedio, 2)</td>*@
+
+                </tr>
+            }
+        }
+        else
+
+        {
+            <tr>
+
+                <td colspan="6">
+                    <b>¡No hay datos que mostrar!</b>
+                </td>
+
+            </tr>
+        }
+    </thbody>
+</table>

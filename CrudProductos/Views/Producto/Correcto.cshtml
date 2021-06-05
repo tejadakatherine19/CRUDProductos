@@ -1,0 +1,29 @@
+﻿
+@{
+    ViewBag.Title = "Correcto";
+}
+
+
+@if (ViewBag.IsNew == true)
+{
+    <center>
+        <div>
+
+            <img src="~/images/lista.png" width="300px;" />
+            <h3>Productos ingresados correctamente</h3>
+            <button class="btn btn-info" style="border-radius:20px;"><img src="~/images/atras.png" width="60px;" /><a href="/" style="color:black">Retornar</a></button>
+        </div>
+    </center>
+}
+else {
+    <center>
+        <div>
+
+            <img src="~/images/lista.png" width="300px;" />
+            <h3>Productos actualizados correctamente</h3>
+            <button class="btn btn-info" style="border-radius:20px;"><img src="~/images/atras.png" width="60px;" /><a href="/" style="color:black">Retornar</a></button>
+        </div>
+    </center>
+}
+
+             
